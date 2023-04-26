@@ -4,15 +4,22 @@
  * _puts - prints a string with newline
  * @str: the string to print
  *
- * Return:( str-a)
+ * Return: the length of the string
  */
 int _puts(char *str)
 {
-	char *a = str;/*declaration of variables*/
+	char *temp = str;
+	int len = 0;
 
-	while (*str)
-		_putchar(*str++);
-	return (str - a);
+	while (*str != '\0')
+	{
+		_putchar(*str);
+		str++;
+		len++;
+	}
+	_putchar('\n');
+	len++;
+	return (len);
 }
 
 /**
@@ -33,6 +40,9 @@ int _putchar(int c)
 		i = 0;
 	}
 	if (c != BUF_FLUSH)
-		buf[i++] = c;
+	{
+		buf[i] = c;
+		i++;
+	}
 	return (1);
 }

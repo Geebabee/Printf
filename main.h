@@ -20,21 +20,21 @@
 #define CONVERT_UNSIGNED	2
 
 /**
- * struct parameters - parameters struct
+ * struct parameters - struct of parameters for conversion specifiers
  *
- * @unsign: flag if unsigned value
+ * @unsign: flag for unsigned value
  *
- * @plus_flag: on if plus_flag specified
- * @space_flag: on if hashtag_flag specified
- * @hashtag_flag: on if _flag specified
- * @zero_flag: on if _flag specified
- * @minus_flag: on if _flag specified
+ * @plus_flag: flag for '+' specifier
+ * @space_flag: flag for ' ' specifier
+ * @hashtag_flag: flag for '#' specifier
+ * @zero_flag: flag for '0' specifier
+ * @minus_flag: flag for '-' specifier
  *
  * @width: field width specified
  * @precision: field precision specified
  *
- * @h_modifier: on if h_modifier is specified
- * @l_modifier: on if l_modifier is specified
+ * @h_modifier: flag for 'h' modifier
+ * @l_modifier: flag for 'l' modifier
  *
  */
 
@@ -117,4 +117,4 @@ char *get_precision(char *p, params_t *params, va_list ap);
 /* _prinf.c module */
 int _printf(const char *format, ...);
 
-#endif /*_MAIN_H_*/
+#endif /*_PRINTF_H_*/

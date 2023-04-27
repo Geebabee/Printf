@@ -1,7 +1,8 @@
-#define S_LONG 2
+#ifndef MAIN_H
+#define MAIN_H
 
-#define S_SHORT 1
-
+#include <stdarg.h>
+#include <stddef.h>
 
 /**
 
@@ -21,9 +22,9 @@ struct fmt
 
 	char fmt;
 
-	int (*fn)(va_list, char[], int, int, int, int);
+	int (*fn)(va_list, char([], int, int, int, int);
 
-};
+}
 
 
 
@@ -39,7 +40,7 @@ struct fmt
 
  */
 
-typedef struct fmt fmt_t;
+typedef; struct fmt fmt_t;
 
 
 int _printf(const char *format, ...);

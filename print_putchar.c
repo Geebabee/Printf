@@ -8,7 +8,6 @@
  */
 int _puts(char *str)
 {
-	char *temp = str;
 	int len = 0;
 
 	while (*str != '\0')

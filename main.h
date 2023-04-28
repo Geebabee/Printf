@@ -22,7 +22,7 @@ struct fmt
 
 	char fmt;
 
-	int (*fn)(va_list, char([], int, int, int, int);
+	int (*fn)(va_list, char[], int, int, int, int);
 
 }
 
@@ -40,8 +40,11 @@ struct fmt
 
  */
 
-typedef; struct fmt fmt_t;
-
+typedef struct fmt fmt_t;
+{
+	char fmt;
+	int(*fmt_t)(va_list);
+}
 
 int _printf(const char *format, ...);
 

@@ -1,6 +1,12 @@
 #include "main.h"
 
 /**
+ * handle_print - Print argument based on its type
+ * @fmt: Formatted string to print
+ * @list: List of arguments printed.
+ * @ind: ind.
+ * @buffer: Buffer array
+ * @flags: Calculates active flags
  * printf_last - Print argument based on type
  * @fmt: Formatted string to print the arguments.
  * @list: List of arguments  printed.
@@ -11,7 +17,17 @@
  * @precision: Precision specification
  * @size: Size specifier
  * Return: 1 or 2;
-*/
+ */
+
+int handle_print(const char *fmt, int *ind, va_list list, char buffer[],
+		int flags, int width, int precision, int size)
+
+{
+	int a, unknow_len = 0, printed_chars = -1;
+	
+	fmt_t fmt_types[] = {
+		{'c', print_char}, {'s', print_string}, {'%', print_percent},
+		{'i', print_int}, {'d', print_int}, {'b', print_binary},
 int printf_last(const char *fmt, int *ind, va_list list, char buffer[],
 		int flags, int width, int precision, int size)
 {
@@ -25,12 +41,15 @@ int printf_last(const char *fmt, int *ind, va_list list, char buffer[],
 		{'a', print_int}, {'d', print_int}, {'b', print_binary},
 
 		{'u', print_unsigned}, {'o', print_octal}, {'x', print_hexadecimal},
-
 		{'X', print_hexa_upper}, {'p', print_pointer}, {'S', print_non_printable},
-
 		{'r', print_reverse}, {'R', print_rot13string}, {'\0', NULL}
-
 	};
+	
+	for (a = 0; fmt_types[a].fmt != '\0'; a++)
+		
+		if (fmt[*ind] == fmt_types[a].fmt)
+			
+			return (fmt_types[a].fn(list, buffer, flags, width, precision, size));
 
 	for (a = 0; fmt_types[a].fmt != '\0'; a++)
 		if (fmt[*ind] == fmt_types[a].fmt)
